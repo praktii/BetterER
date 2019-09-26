@@ -1,6 +1,6 @@
 # BetterER
 
-A simple and easy to tool that allows you to create ER-Diagrams.
+A simple and easy to use tool, that allows you to create ER-Diagrams.
 
 ## Built With
 
