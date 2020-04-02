@@ -29,12 +29,12 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     
     - name: Restore NuGet packages
-      run: nuget restore BuildTest.sln
+      run: nuget restore BetterER.sln
     
     - name: Build the Solution
-      run: msbuild BuildTest.sln /p:Configuration=Release
+      run: msbuild BetterER.sln /p:Configuration=Release
 
     - uses: actions/upload-artifact@v1.0.0
       with:
-          name: artifacts${{github.ref}}
-          path: BuildTest\bin\Release\BuildTest.exe
+          name: artifacts
+          path: BetterER\bin\Release\BetterER.exe
