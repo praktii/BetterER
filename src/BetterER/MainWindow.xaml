@@ -7,8 +7,20 @@
         mc:Ignorable="d"
         Title="BetterER" 
         Height="450" Width="800"
-        Icon="/Assets/er.png">
+        Icon="/Assets/er.png"
+        WindowState="Maximized">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Close" />
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
