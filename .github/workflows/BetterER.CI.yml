@@ -36,5 +36,5 @@ jobs:
 
     - uses: actions/upload-artifact@v1.0.0
       with:
-          name: artifacts${{github.ref}}
+          name: artifacts
           path: BetterER\bin\Release\BetterER.exe
