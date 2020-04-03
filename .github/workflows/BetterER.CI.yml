@@ -36,5 +36,5 @@ jobs:
 
     - uses: actions/upload-artifact@v1.0.0
       with:
-          name: NetComponents_${{.github.base_ref}}_build-${{github.run_number}}
+          name: NetComponents_${{github.base_ref}}_build-${{github.run_number}}
           path: src\BetterER\bin\Release\BetterER.exe
