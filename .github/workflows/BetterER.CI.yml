@@ -34,7 +34,7 @@ jobs:
       run: nuget restore BetterER.sln
 
     - name: TEST
-      run: echo ${{github.ref##*/}}
+      run: echo ${{github.ref}}
    
     - uses: actions/upload-artifact@v1.0.0
       with:
