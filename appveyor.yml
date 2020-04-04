@@ -14,3 +14,17 @@ build:
 artifacts:
 - path: src\BetterER\bin\$(configuration)
   name: BetterER_NETComponents_$(APPVEYOR_BUILD_VERSION)
+  
+deploy:
+  release: BetterER_v$(appveyor_build_version)
+  description: 'Release'
+  provider: GitHub
+  auth_token:
+    secure: L5pTRfU6cJsN4FJEKgubr0A6GmDd/ONs/l9fk4s+GnpEsw7MiWVRvfzUi8eo2A/N
+  artifacts: src\BetterER\bin\src\BetterER\bin\$(configuration)
+  draft: false
+  prerelase: false
+  force_update: true
+  on:
+    branch: master
+    APPVEYOR_REPO_RAG: true
