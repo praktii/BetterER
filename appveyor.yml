@@ -5,4 +5,4 @@ build:
   verbosity: minimal
 artifacts:
 - path: src\BetterER\bin\$(configuration)
-  name: BetterER_NETComponents_$(APPVEYOR_BUILD_VERSION)_{branch}
+  name: BetterER_NETComponents_$(APPVEYOR_BUILD_VERSION)
