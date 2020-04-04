@@ -14,6 +14,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      BRANCH_NAME: TestBranch1.2.3
     # The type of runner that the job will run on
     runs-on: [windows-latest]
 
@@ -30,11 +32,11 @@ jobs:
     
     - name: Restore NuGet packages
       run: nuget restore BetterER.sln
-    
-    - name: Build the Solution
-      run: msbuild BetterER.sln /p:Configuration=Release
 
+    - name: TEST
+      run: echo ${{github.ref}}
+   
     - uses: actions/upload-artifact@v1.0.0
       with:
-          name: artifacts
+          name: NetComponents_$BRNACH_NAME_build-${{github.run_number}}
           path: src\BetterER\bin\Release\BetterER.exe
