@@ -5,4 +5,4 @@ build:
   verbosity: minimal
 artifacts:
 - path: src\BetterER\bin\$(configuration)
-  name: BetterER
+  name: BetterER_NETComponents_$(version)
