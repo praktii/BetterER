@@ -33,8 +33,15 @@ jobs:
     
     - name: Build the Solution
       run: msbuild BetterER.sln /p:Configuration=Release
+ 
+    - name: Extract branch name
+      shell: bash
+      run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+      
+    - name: Test
+      run: echo "${BRANCH_NAME}"
 
     - uses: actions/upload-artifact@v1.0.0
       with:
-          name: NetComponents_${{github.base_ref}}_build-${{github.run_number}}
+          name: NetComponents_build-${{github.run_number}}
           path: src\BetterER\bin\Release\BetterER.exe
