@@ -1,0 +1,8 @@
+version: 1.0.{build}_{branch}
+configuration: Release
+platform: Any CPU
+build:
+  verbosity: minimal
+artifacts:
+- path: src\BetterER\bin\$(configuration)
+  name: BetterER
