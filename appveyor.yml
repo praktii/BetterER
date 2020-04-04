@@ -1,8 +1,16 @@
 version: 1.0.{build}_{branch}
+
+pull_requests:
+  do_not_increment_build_number: true
+  
+image: Visual Studio 2019
+
 configuration: Release
 platform: Any CPU
+
 build:
   verbosity: minimal
+  
 artifacts:
 - path: src\BetterER\bin\$(configuration)
   name: BetterER_NETComponents_$(APPVEYOR_BUILD_VERSION)
