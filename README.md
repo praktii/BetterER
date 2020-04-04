@@ -1,6 +1,4 @@
 # BetterER
-
-![BettER.CI](https://github.com/praktii/BetterER/workflows/BettER.CI/badge.svg?branch=master)
 [![Build status](https://ci.appveyor.com/api/projects/status/96eceghsxum4hcuk/branch/master?svg=true)](https://ci.appveyor.com/project/praktii/betterer/branch/master)
 [![license](https://img.shields.io/github/license/praktii/BetterER?style=plastic)](https://github.com/praktii/BetterER/blob/master/LICENSE)
 
