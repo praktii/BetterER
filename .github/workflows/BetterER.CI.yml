@@ -32,11 +32,9 @@ jobs:
       run: nuget restore BetterER.sln
 
     - name: TEST
-      run: echo ${GITHUB_REF##*/}
+      run: echo ${{github_ref##*/}}
    
     - uses: actions/upload-artifact@v1.0.0
       with:
-          name: NetComponents_${BRANCH_NAME}_build-${{github.run_number}}
+          name: NetComponents_${{github_ref##*/}}_build-${{github.run_number}}
           path: src\BetterER\bin\Release\BetterER.exe
-      env:
-        BRANCH_NAME: "bllubbbbbbbb"
