@@ -16,10 +16,40 @@
         </Grid.RowDefinitions>
 
         <Menu>
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Close" />
+            <MenuItem Header="Datei">
+                <MenuItem Header="Neues Diagramm" />
+                <MenuItem Header="Diagramm öffnen" />
+                <Separator />
+                <MenuItem Header="Diagramm speichern" />
+                <MenuItem Header="Diagramm speichern unter" />
+                <Separator />
+                <MenuItem Header="Diagramm exportieren" />
+                <Separator />
+                <MenuItem Header="Diagramm schließen" />
+                <Separator />
+                <MenuItem Header="Beenden" />
+            </MenuItem>
+            <MenuItem Header="Bearbeiten">
+                <MenuItem Header="Rückgängig" />
+                <MenuItem Header="Wiederherstellen" />
+                <Separator />
+                <MenuItem Header="Kopieren" />
+                <MenuItem Header="Einfügen" />
+                <MenuItem Header="Ausschneiden" />
+                <Separator />
+                <MenuItem Header="Alle anwählen" />
+            </MenuItem>
+            <MenuItem Header="Funktionen">
+                <MenuItem Header="SQL-Skript generieren" />
+                <MenuItem Header=".pdf export" />
+                <MenuItem Header=".png export" />
+                <MenuItem Header="Fehleranalyse (beta)" />
+            </MenuItem>
+            <MenuItem Header="Einstellungen" />
+            <MenuItem Header="Hilfe" >
+                <MenuItem Header="Handbuch" />
+                <MenuItem Header="Fehler melden" />
+                <MenuItem Header="Über BetterER" />
             </MenuItem>
         </Menu>
     </Grid>
