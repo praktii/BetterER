@@ -3,24 +3,82 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BetterER"
+        xmlns:viewModel="clr-namespace:BetterER.ViewModels"
         mc:Ignorable="d"
         Title="BetterER" 
-        Height="450" Width="800"
+        MinHeight="700" MinWidth="900"
         Icon="/Assets/er.png"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        d:DataContext="{d:DesignInstance viewModel:MainViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Menu>
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Close" />
+            <MenuItem Header="Datei">
+                <MenuItem Header="Neues Diagramm" />
+                <MenuItem Header="Diagramm öffnen" />
+                <Separator />
+                <MenuItem Header="Diagramm speichern" Command="{Binding SaveDiagramCommand}" />
+                <MenuItem Header="Diagramm speichern unter" Command="{Binding SaveDiagramUnderCommand}"/>
+                <Separator />
+                <MenuItem Header="Diagramm exportieren" Command="{Binding ExportDiagramCommand}"/>
+                <Separator />
+                <MenuItem Header="Diagramm schließen" Command="{Binding CloseDiagramCommand}"/>
+                <Separator />
+                <MenuItem Header="Beenden" Command="{Binding ExitApplicationCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Bearbeiten" IsEnabled="{Binding DiagramOpen}">
+                <MenuItem Header="Rückgängig" Command="{Binding UndoCommand}"/>
+                <MenuItem Header="Wiederherstellen" Command="{Binding RedoCommand}"/>
+                <Separator />
+                <MenuItem Header="Kopieren" Command="{Binding CopyCommand}"/>
+                <MenuItem Header="Einfügen" Command="{Binding PasteCommand}"/>
+                <MenuItem Header="Ausschneiden" Command="{Binding CutCommand}"/>
+                <Separator />
+                <MenuItem Header="Alle anwählen" Command="{Binding SelectAllCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Funktionen" IsEnabled="{Binding DiagramOpen}">
+                <MenuItem Header="SQL-Skript generieren" Command="{Binding GenerateSqlScriptCommand}"/>
+                <MenuItem Header=".pdf export" Command="{Binding PdfExportCommand}"/>
+                <MenuItem Header=".png export" Command="{Binding PngExportCommand}"/>
+                <MenuItem Header="Fehleranalyse (beta)" Command="{Binding ErrorAnalysisCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Einstellungen" Command="{Binding OpenSettingsCommand}"/>
+            <MenuItem Header="Hilfe" >
+                <MenuItem Header="Handbuch" Command="{Binding OpenHelpfileCommand}"/>
+                <MenuItem Header="Fehler melden" Command="{Binding ReportErrorCommand}" />
+                <MenuItem Header="Über BetterER" Command="{Binding ShowAboutCommand}"/>
             </MenuItem>
         </Menu>
+
+        <Grid Grid.Row="1">
+
+        </Grid>
+
+        <StatusBar Grid.Row="2" Background="LightGray" BorderBrush="DarkGray" BorderThickness="0 1 0 0">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem >
+                <TextBlock Text="Filepath" Margin="10 0 0 0"/>
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2" >
+                <TextBlock Text="Version 1.0" Margin="0 0 10 0"/>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
