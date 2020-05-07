@@ -1,11 +1,11 @@
 ﻿namespace BetterER.Dialog
 {
     /// <summary>
-    /// Interaction logic for SplashScreen.xaml
+    /// Interaction logic for BaseDialogWindow.xaml
     /// </summary>
-    public partial class SplashScreen
+    public partial class BaseDialogWindow
     {
-        public SplashScreen()
+        public BaseDialogWindow()
         {
             InitializeComponent();
         }
