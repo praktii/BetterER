@@ -52,8 +52,8 @@ namespace BetterER
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-EN");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-EN");
             }
         }
     }
