@@ -124,6 +124,24 @@ namespace BetterER.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DarkMode.
+        /// </summary>
+        public static string DarkMode {
+            get {
+                return ResourceManager.GetString("DarkMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default storage path:.
+        /// </summary>
+        public static string DefaultStoragePath {
+            get {
+                return ResourceManager.GetString("DefaultStoragePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
@@ -309,6 +327,15 @@ namespace BetterER.Properties {
         public static string SelectAll {
             get {
                 return ResourceManager.GetString("SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select your default storage path.
+        /// </summary>
+        public static string SelectDefaultStoragePath {
+            get {
+                return ResourceManager.GetString("SelectDefaultStoragePath", resourceCulture);
             }
         }
         
