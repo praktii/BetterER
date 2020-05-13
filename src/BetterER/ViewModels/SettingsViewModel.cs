@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 using BetterER.Controller;
 using BetterER.Models;
 using BetterER.MVVM;
+using ControlzEx.Theming;
 
 namespace BetterER.ViewModels
 {
@@ -30,6 +33,7 @@ namespace BetterER.ViewModels
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand AbortCommand { get; }
+        public RelayCommand SelectDefaultStoragePathCommand { get; }
 
         public event EventHandler DialogResultTrueRequest;
         public event EventHandler DialogResultFalseRequest;
@@ -38,12 +42,22 @@ namespace BetterER.ViewModels
         {
             _configurationController = new ConfigurationController<GlobalSettings>();
             _configurationController.ConfigFileName = "GlobalSettings.json";
-            LanguageDictionary = new Dictionary<string, string> {{"de-DE", "Deutsch"}, {"en-EN", "English"}};
+            LanguageDictionary = new Dictionary<string, string> { { "de-DE", "Deutsch" }, { "en-EN", "English" } };
             GlobalSettings = new GlobalSettings();
             LoadSettings();
 
             SaveCommand = new RelayCommand(Save, CanSave);
             AbortCommand = new RelayCommand(Abort);
+            SelectDefaultStoragePathCommand = new RelayCommand(SelectDefaultStoragePath);
+        }
+
+        private void SelectDefaultStoragePath()
+        {
+            var browserDialog = new FolderBrowserDialog();
+            browserDialog.Description = Properties.strings.SelectDefaultStoragePath;
+            var result = browserDialog.ShowDialog();
+            if (result == DialogResult.OK)
+                GlobalSettings.DefaultStoragePath = browserDialog.SelectedPath;
         }
 
         private void Abort()
@@ -61,11 +75,17 @@ namespace BetterER.ViewModels
             try
             {
                 _configurationController.Save(GlobalSettings);
+                if (GlobalSettings.DarkModeEnabled)
+                    ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Dark.Blue");
+                else
+                    ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Light.Blue");
+
                 DialogResultTrueRequest.Invoke(this, new EventArgs());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                throw e;
             }
         }
 
@@ -74,12 +94,20 @@ namespace BetterER.ViewModels
             try
             {
                 GlobalSettings = _configurationController.Load();
+                if (GlobalSettings.DefaultStoragePath == null || string.IsNullOrWhiteSpace(GlobalSettings.LanguageKey))
+                    SetSettings();
             }
             catch (Exception)
             {
-                GlobalSettings.LanguageKey = "en-EN";
-                _configurationController.Save(GlobalSettings);
+                SetSettings();
             }
+        }
+
+        private void SetSettings()
+        {
+            GlobalSettings.LanguageKey = "en-EN";
+            GlobalSettings.DefaultStoragePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "BetterER", "Diagrams");
+            _configurationController.Save(GlobalSettings);
         }
     }
 }

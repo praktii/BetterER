@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using BetterER.Controller;
 using BetterER.Models;
+using ControlzEx.Theming;
 
 namespace BetterER
 {
@@ -49,6 +50,11 @@ namespace BetterER
                 _globalSettings = _configurationController.Load();
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(_globalSettings.LanguageKey);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(_globalSettings.LanguageKey);
+                if (_globalSettings.DarkModeEnabled)
+                    ThemeManager.Current.ChangeTheme(Application.Current, "Dark.Blue");
+                else
+                    ThemeManager.Current.ChangeTheme(Application.Current, "Light.Blue");
+
             }
             catch (Exception e)
             {

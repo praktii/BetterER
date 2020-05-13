@@ -138,6 +138,12 @@
   <data name="Cut" xml:space="preserve">
     <value>Cut</value>
   </data>
+  <data name="DarkMode" xml:space="preserve">
+    <value>DarkMode</value>
+  </data>
+  <data name="DefaultStoragePath" xml:space="preserve">
+    <value>Default storage path:</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
@@ -200,6 +206,9 @@
   </data>
   <data name="SelectAll" xml:space="preserve">
     <value>Select all</value>
+  </data>
+  <data name="SelectDefaultStoragePath" xml:space="preserve">
+    <value>Please select your default storage path</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Send</value>
