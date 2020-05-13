@@ -26,7 +26,7 @@
 
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static prop:strings.Ok}"  Command="{Binding SaveCommand}"  Margin="10" Width="150"></Button>
-            <Button Content="{x:Static prop:strings.Abort}" Margin="10" Width="150"></Button>
+            <Button Content="{x:Static prop:strings.Abort}" Command="{Binding AbortCommand}" Margin="10" Width="150"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -31,6 +31,9 @@ namespace BetterER.ViewModels
         public RelayCommand SaveCommand { get; }
         public RelayCommand AbortCommand { get; }
 
+        public event EventHandler DialogResultTrueRequest;
+        public event EventHandler DialogResultFalseRequest;
+
         public SettingsViewModel(string title) : base(title)
         {
             _configurationController = new ConfigurationController<GlobalSettings>();
@@ -45,6 +48,7 @@ namespace BetterER.ViewModels
 
         private void Abort()
         {
+            DialogResultFalseRequest.Invoke(this, new EventArgs());
         }
 
         private bool CanSave()
@@ -57,6 +61,7 @@ namespace BetterER.ViewModels
             try
             {
                 _configurationController.Save(GlobalSettings);
+                DialogResultTrueRequest.Invoke(this, new EventArgs());
             }
             catch (Exception e)
             {
@@ -70,7 +75,7 @@ namespace BetterER.ViewModels
             {
                 GlobalSettings = _configurationController.Load();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 GlobalSettings.LanguageKey = "en-EN";
                 _configurationController.Save(GlobalSettings);

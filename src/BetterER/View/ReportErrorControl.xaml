@@ -30,8 +30,8 @@
         <TextBox Grid.Row="5" Margin="10 5 10 10" Height="25" VerticalContentAlignment="Center"></TextBox>
 
         <StackPanel Grid.Row="6" HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button Content="{x:Static prop:strings.Send}" Margin="10" Width="150" Height="25"></Button>
-            <Button Content="{x:Static prop:strings.Abort}" Margin="10" Width="150" Height="25"></Button>
+            <Button Content="{x:Static prop:strings.Send}" Command="{Binding SendCommand}"  Margin="10" Width="150" Height="25"></Button>
+            <Button Content="{x:Static prop:strings.Abort}" Command="{Binding AbortCommand}" Margin="10" Width="150" Height="25"></Button>
         </StackPanel>
     </Grid>
 </UserControl>
