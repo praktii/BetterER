@@ -1,15 +1,16 @@
-﻿<Window x:Class="BetterER.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModel="clr-namespace:BetterER.ViewModels"
-        mc:Ignorable="d"
-        Title="BetterER" 
-        MinHeight="700" MinWidth="900"
-        Icon="/Assets/er.png"
-        WindowState="Maximized"
-        d:DataContext="{d:DesignInstance viewModel:MainViewModel}">
+﻿<mah:MetroWindow
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    x:Class="BetterER.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:BetterER.ViewModels"
+    mc:Ignorable="d"
+    Title="BetterER" 
+    MinHeight="700" MinWidth="900"
+    WindowState="Maximized"
+    d:DataContext="{d:DesignInstance viewModel:MainViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -59,7 +60,7 @@
 
         </Grid>
 
-        <StatusBar Grid.Row="2" Background="LightGray" BorderBrush="DarkGray" BorderThickness="0 1 0 0">
+        <StatusBar Grid.Row="2" Background="{StaticResource MahApps.Brushes.AccentBase}">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -81,4 +82,4 @@
             </StatusBarItem>
         </StatusBar>
     </Grid>
-</Window>
+</mah:MetroWindow>

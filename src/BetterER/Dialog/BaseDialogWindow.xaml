@@ -1,16 +1,18 @@
-﻿<Window x:Class="BetterER.Dialog.BaseDialogWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModel="clr-namespace:BetterER.ViewModels"
-        xmlns:view="clr-namespace:BetterER.View"
-        mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance viewModel:BaseDialogViewModel}"
-        Title="BaseDialogWindow" MinHeight="250" MinWidth="450"
-        SizeToContent="WidthAndHeight"
-        ResizeMode="CanMinimize"
-        WindowStartupLocation="CenterScreen">
+﻿<mah:MetroWindow
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+    x:Class="BetterER.Dialog.BaseDialogWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:BetterER.ViewModels"
+    xmlns:view="clr-namespace:BetterER.View"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance viewModel:BaseDialogViewModel}"
+    Title="BaseDialogWindow" MinHeight="250" MinWidth="450"
+    SizeToContent="WidthAndHeight"
+    ResizeMode="CanMinimize"
+    WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -29,4 +31,4 @@
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
     </Grid>
-</Window>
+</mah:MetroWindow>
