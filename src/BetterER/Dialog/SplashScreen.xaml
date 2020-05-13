@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prop="clr-namespace:BetterER.Properties"
         mc:Ignorable="d"
         Height="450" Width="800"
         WindowStyle="None"
@@ -15,6 +16,9 @@
     <Grid>
         <TextBlock Text="BetterER" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="96" FontWeight="ExtraBold" FontFamily="Arial" Foreground="White"/>
         <TextBlock Text="Starting.." Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold"/>
-        <TextBlock Text="Version 1.0.0" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" FontWeight="DemiBold"/>
+        <TextBlock Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" FontWeight="DemiBold">
+            <Run Text="{x:Static prop:strings.Version}"></Run>
+            <Run Text="1.0.0"></Run>
+        </TextBlock>
     </Grid>
 </Window>

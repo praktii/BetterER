@@ -8,32 +8,34 @@ namespace BetterER.Controller
     {
         public void ShowSettingsWindow()
         {
-            var baseDialogViewModel = new BaseDialogViewModel("Einstellungen")
-            {
-                CurrentViewModel = new SettingsViewModel("Einstellungen")
-            };
-            var baseDialog = new BaseDialogWindow{DataContext = baseDialogViewModel};
-            baseDialog.ShowDialog();
+            var baseDialogViewModel = new BaseDialogViewModel(Properties.strings.Settings);
+            var settingsViewModel = new SettingsViewModel(Properties.strings.Settings);
+            baseDialogViewModel.CurrentViewModel = settingsViewModel;
+            var baseDialog = new BaseDialogWindow { DataContext = baseDialogViewModel };
+            settingsViewModel.DialogResultFalseRequest += baseDialog.OnDialogResultFalse;
+            settingsViewModel.DialogResultTrueRequest += baseDialog.OnDialogResultTrue;
+            var result = baseDialog.ShowDialog();
         }
 
         public void ShowAboutWindow()
         {
-            var baseDialogViewModel = new BaseDialogViewModel("Über BetterER")
-            {
-                CurrentViewModel = new AboutViewModel("Über BetterER")
-            };
+            var baseDialogViewModel = new BaseDialogViewModel(Properties.strings.About);
+            var aboutViewModel = new AboutViewModel(Properties.strings.About);
+            baseDialogViewModel.CurrentViewModel = aboutViewModel;
             var baseDialog = new BaseDialogWindow { DataContext = baseDialogViewModel };
-            baseDialog.ShowDialog();
+            aboutViewModel.CloseRequest += baseDialog.OnCloseDialog;
+            var result = baseDialog.ShowDialog();
         }
 
         public void ShowReportErrorWindow()
         {
-            var baseDialogViewModel = new BaseDialogViewModel("Fehler melden")
-            {
-                CurrentViewModel = new ReportErrorViewModel("Fehler melden")
-            };
+            var baseDialogViewModel = new BaseDialogViewModel(Properties.strings.ReportError);
+            var reportErrorViewModel= new ReportErrorViewModel(Properties.strings.ReportError);
+            baseDialogViewModel.CurrentViewModel = reportErrorViewModel;
             var baseDialog = new BaseDialogWindow { DataContext = baseDialogViewModel };
-            baseDialog.ShowDialog();
+            reportErrorViewModel.DialogResultFalseRequest += baseDialog.OnDialogResultFalse;
+            reportErrorViewModel.DialogResultTrueRequest += baseDialog.OnDialogResultTrue;
+            var result = baseDialog.ShowDialog();
         }
     }
 }
