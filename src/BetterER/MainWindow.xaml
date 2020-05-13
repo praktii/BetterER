@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:BetterER.ViewModels"
+        xmlns:prop="clr-namespace:BetterER.Properties"
         mc:Ignorable="d"
         Title="BetterER" 
         MinHeight="700" MinWidth="900"
@@ -18,40 +19,40 @@
         </Grid.RowDefinitions>
 
         <Menu>
-            <MenuItem Header="Datei">
-                <MenuItem Header="Neues Diagramm" />
-                <MenuItem Header="Diagramm öffnen" />
+            <MenuItem Header="{x:Static prop:strings.File}">
+                <MenuItem Header="{x:Static prop:strings.NewDiagram}" />
+                <MenuItem Header="{x:Static prop:strings.OpenDiagram}" />
                 <Separator />
-                <MenuItem Header="Diagramm speichern" Command="{Binding SaveDiagramCommand}" />
-                <MenuItem Header="Diagramm speichern unter" Command="{Binding SaveDiagramUnderCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.SaveDiagram}" Command="{Binding SaveDiagramCommand}" />
+                <MenuItem Header="{x:Static prop:strings.SaveDiagramAs}" Command="{Binding SaveDiagramUnderCommand}"/>
                 <Separator />
-                <MenuItem Header="Diagramm exportieren" Command="{Binding ExportDiagramCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ExportDiagram}" Command="{Binding ExportDiagramCommand}"/>
                 <Separator />
-                <MenuItem Header="Diagramm schließen" Command="{Binding CloseDiagramCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.CloseDiagram}" Command="{Binding CloseDiagramCommand}"/>
                 <Separator />
-                <MenuItem Header="Beenden" Command="{Binding ExitApplicationCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Exit}" Command="{Binding ExitApplicationCommand}"/>
             </MenuItem>
-            <MenuItem Header="Bearbeiten" IsEnabled="{Binding DiagramOpen}">
-                <MenuItem Header="Rückgängig" Command="{Binding UndoCommand}"/>
-                <MenuItem Header="Wiederherstellen" Command="{Binding RedoCommand}"/>
+            <MenuItem Header="{x:Static prop:strings.Edit}" IsEnabled="{Binding DiagramOpen}">
+                <MenuItem Header="{x:Static prop:strings.Undo}" Command="{Binding UndoCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Redo}" Command="{Binding RedoCommand}"/>
                 <Separator />
-                <MenuItem Header="Kopieren" Command="{Binding CopyCommand}"/>
-                <MenuItem Header="Einfügen" Command="{Binding PasteCommand}"/>
-                <MenuItem Header="Ausschneiden" Command="{Binding CutCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Copy}" Command="{Binding CopyCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Paste}" Command="{Binding PasteCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Cut}" Command="{Binding CutCommand}"/>
                 <Separator />
-                <MenuItem Header="Alle anwählen" Command="{Binding SelectAllCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.SelectAll}" Command="{Binding SelectAllCommand}"/>
             </MenuItem>
-            <MenuItem Header="Funktionen" IsEnabled="{Binding DiagramOpen}">
-                <MenuItem Header="SQL-Skript generieren" Command="{Binding GenerateSqlScriptCommand}"/>
-                <MenuItem Header=".pdf export" Command="{Binding PdfExportCommand}"/>
-                <MenuItem Header=".png export" Command="{Binding PngExportCommand}"/>
-                <MenuItem Header="Fehleranalyse (beta)" Command="{Binding ErrorAnalysisCommand}"/>
+            <MenuItem Header="{x:Static prop:strings.Actions}" IsEnabled="{Binding DiagramOpen}">
+                <MenuItem Header="{x:Static prop:strings.GenerateSqlScript}" Command="{Binding GenerateSqlScriptCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ExportAsPdf}" Command="{Binding PdfExportCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ExportAsPng}" Command="{Binding PngExportCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ErrorAnalysis}" Command="{Binding ErrorAnalysisCommand}"/>
             </MenuItem>
-            <MenuItem Header="Einstellungen" Command="{Binding OpenSettingsCommand}"/>
-            <MenuItem Header="Hilfe" >
-                <MenuItem Header="Handbuch" Command="{Binding OpenHelpfileCommand}"/>
-                <MenuItem Header="Fehler melden" Command="{Binding ReportErrorCommand}" />
-                <MenuItem Header="Über BetterER" Command="{Binding ShowAboutCommand}"/>
+            <MenuItem Header="{x:Static prop:strings.Settings}" Command="{Binding OpenSettingsCommand}"/>
+            <MenuItem Header="{x:Static prop:strings.Help}" >
+                <MenuItem Header="{x:Static prop:strings.ViewHelp}" Command="{Binding OpenHelpfileCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ReportError}" Command="{Binding ReportErrorCommand}" />
+                <MenuItem Header="{x:Static prop:strings.About}" Command="{Binding ShowAboutCommand}"/>
             </MenuItem>
         </Menu>
 
@@ -77,7 +78,10 @@
             </StatusBarItem>
             <Separator Grid.Column="1" />
             <StatusBarItem Grid.Column="2" >
-                <TextBlock Text="Version 1.0" Margin="0 0 10 0"/>
+                <TextBlock Margin="0 0 10 0">
+                    <Run Text="{x:Static prop:strings.Version}">
+                    </Run><Run Text="1.0"></Run>
+                </TextBlock>
             </StatusBarItem>
         </StatusBar>
     </Grid>

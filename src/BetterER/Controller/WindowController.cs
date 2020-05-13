@@ -8,9 +8,9 @@ namespace BetterER.Controller
     {
         public void ShowSettingsWindow()
         {
-            var baseDialogViewModel = new BaseDialogViewModel("Einstellungen")
+            var baseDialogViewModel = new BaseDialogViewModel(Properties.strings.Settings)
             {
-                CurrentViewModel = new SettingsViewModel("Einstellungen")
+                CurrentViewModel = new SettingsViewModel(Properties.strings.Settings)
             };
             var baseDialog = new BaseDialogWindow{DataContext = baseDialogViewModel};
             baseDialog.ShowDialog();
@@ -18,9 +18,9 @@ namespace BetterER.Controller
 
         public void ShowAboutWindow()
         {
-            var baseDialogViewModel = new BaseDialogViewModel("Über BetterER")
+            var baseDialogViewModel = new BaseDialogViewModel(Properties.strings.About)
             {
-                CurrentViewModel = new AboutViewModel("Über BetterER")
+                CurrentViewModel = new AboutViewModel(Properties.strings.About)
             };
             var baseDialog = new BaseDialogWindow { DataContext = baseDialogViewModel };
             baseDialog.ShowDialog();
@@ -28,9 +28,9 @@ namespace BetterER.Controller
 
         public void ShowReportErrorWindow()
         {
-            var baseDialogViewModel = new BaseDialogViewModel("Fehler melden")
+            var baseDialogViewModel = new BaseDialogViewModel(Properties.strings.ReportError)
             {
-                CurrentViewModel = new ReportErrorViewModel("Fehler melden")
+                CurrentViewModel = new ReportErrorViewModel(Properties.strings.ReportError)
             };
             var baseDialog = new BaseDialogWindow { DataContext = baseDialogViewModel };
             baseDialog.ShowDialog();

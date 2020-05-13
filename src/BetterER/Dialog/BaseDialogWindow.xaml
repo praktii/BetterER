@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:BetterER.View"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance viewModel:BaseDialogViewModel}"
-        Title="BaseDialogWindow" MinHeight="250" MinWidth="450"
+        Title="{Binding Title}" MinHeight="250" MinWidth="450"
         SizeToContent="WidthAndHeight"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">

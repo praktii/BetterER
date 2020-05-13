@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prop="clr-namespace:BetterER.Properties"
              mc:Ignorable="d" 
              Width="450"
              Height="250">
@@ -13,6 +14,6 @@
        </Grid.RowDefinitions>     
 
         <TextBlock Text="" Margin="10"></TextBlock>
-        <Button Content="Schließen" Grid.Row="1" Margin="10" Height="25" Width="150"></Button>
+        <Button Content="{x:Static prop:strings.Close}" Grid.Row="1" Margin="10" Height="25" Width="150"></Button>
     </Grid>
 </UserControl>

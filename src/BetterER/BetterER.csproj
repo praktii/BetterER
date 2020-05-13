@@ -38,6 +38,9 @@
     <ApplicationIcon>er.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,12 +61,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\ConfigurationController.cs" />
     <Compile Include="Controller\Contracts\IWindowController.cs" />
     <Compile Include="Controller\WindowController.cs" />
     <Compile Include="Dialog\BaseDialogWindow.xaml.cs">
       <DependentUpon>BaseDialogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GlobalSettings.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
+    <Compile Include="Properties\strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\BaseDialogViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -133,6 +143,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\strings.de.resx" />
+    <EmbeddedResource Include="Properties\strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
