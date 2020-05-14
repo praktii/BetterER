@@ -13,6 +13,10 @@ before_build:
 
 build:
   verbosity: minimal
+
+test:
+  assemblies:
+    - '**\*.Tests.dll'
   
 artifacts:
 - path: src\BetterER\bin\$(configuration)
