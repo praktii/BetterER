@@ -143,17 +143,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\ConfigurationController.cs" />
-    <Compile Include="Controller\Contracts\IBaseSQLController.cs" />
     <Compile Include="Controller\Contracts\IMySQLController.cs" />
     <Compile Include="Controller\Contracts\ISQLController.cs" />
+    <Compile Include="Controller\Contracts\ISQLiteController.cs" />
     <Compile Include="Controller\Contracts\IWindowController.cs" />
     <Compile Include="Controller\MySQLController.cs" />
     <Compile Include="Controller\SQLController.cs" />
+    <Compile Include="Controller\SQLiteController.cs" />
     <Compile Include="Controller\WindowController.cs" />
     <Compile Include="Dialog\BaseDialogWindow.xaml.cs">
       <DependentUpon>BaseDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BasicAttribute.cs" />
+    <Compile Include="Models\BasicDiagram.cs" />
     <Compile Include="Models\BasicEntity.cs" />
     <Compile Include="Models\GlobalSettings.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />

@@ -2,7 +2,8 @@
 
 namespace BetterER.Controller.Contracts
 {
-    public interface IMySQLController : IBaseSQLController
+    public interface IMySQLController
     {
+        string CreateCompleteScriptForMySQL(BasicDiagram basicDiagram);
     }
 }

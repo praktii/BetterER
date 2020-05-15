@@ -2,9 +2,9 @@
 
 namespace BetterER.Controller.Contracts
 {
-    public interface ISQLController : IBaseSQLController
+    public interface ISQLController
     {
-        string CreateCompleteScriptForMsSQL(BasicEntity basicEntity);
-        string CreateCompleteScriptForSQLite(BasicEntity basicEntity);
+        string CreateCompleteScriptForMsSQL(BasicDiagram basicDiagram);
+        string CreateCompleteScriptForSQL(BasicDiagram basicDiagram);
     }
 }
