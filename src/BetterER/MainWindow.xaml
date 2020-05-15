@@ -49,6 +49,7 @@
                 <MenuItem Header="{x:Static prop:strings.ExportAsPng}" Command="{Binding PngExportCommand}"/>
                 <MenuItem Header="{x:Static prop:strings.ErrorAnalysis}" Command="{Binding ErrorAnalysisCommand}"/>
             </MenuItem>
+            <MenuItem Header="Editor" Command="{Binding OpenEditorWindowCommand}" />
             <MenuItem Header="{x:Static prop:strings.Settings}" Command="{Binding OpenSettingsCommand}"/>
             <MenuItem Header="{x:Static prop:strings.Help}" >
                 <MenuItem Header="{x:Static prop:strings.ViewHelp}" Command="{Binding OpenHelpfileCommand}"/>

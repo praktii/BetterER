@@ -69,7 +69,7 @@ namespace BetterER.Tests
             var expectedString =
                 "CREATE TABLE Test(" + Environment.NewLine +
                 "Column1 varchar(50) NOT NULL Col1," + Environment.NewLine +
-                "Column2 varchar(50) Col2" + Environment.NewLine +
+                "Column2 varchar(50) DEFAULT Col2" + Environment.NewLine +
                 ");";
             Assert.AreEqual(expectedString, result);
         }

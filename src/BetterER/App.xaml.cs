@@ -56,7 +56,7 @@ namespace BetterER
                     ThemeManager.Current.ChangeTheme(Application.Current, "Light.Blue");
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("en-EN");
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-EN");

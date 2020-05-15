@@ -9,7 +9,7 @@
     xmlns:view="clr-namespace:BetterER.View"
     mc:Ignorable="d"
     d:DataContext="{d:DesignInstance viewModel:BaseDialogViewModel}"
-    Title="BaseDialogWindow" MinHeight="250" MinWidth="450"
+    Title="{Binding Title}" MinHeight="250" MinWidth="450"
     SizeToContent="WidthAndHeight"
     ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen">
@@ -23,6 +23,12 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:ReportErrorViewModel}">
                 <view:ReportErrorControl></view:ReportErrorControl>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EditorViewModel}">
+                <view:EditorControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DiagramToScriptViewModel}">
+                <view:DiagramToScriptControl />
             </DataTemplate>
         </ResourceDictionary>
 

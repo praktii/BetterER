@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="BetterER.View.EditorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" >
+    <Grid>
+        <TabControl>
+            <TabItem Header="SQL">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <avalonEdit:TextEditor xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                                           SyntaxHighlighting="SQL"
+                                           FontFamily="Consolas"
+                                           FontSize="10pt"
+                                           Background="White"
+                                           x:Name="SQLAvalonEdit"
+                                           BorderBrush="{StaticResource MahApps.Brushes.AccentBase}"
+                                           BorderThickness="1"
+                                           Margin="10 0 10 0"
+                                           Padding="5"/>
+                    <Button Content="Test script" Grid.Row="1" Width="150" Margin="10" HorizontalAlignment="Right"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="MySQL">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <avalonEdit:TextEditor xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                                           SyntaxHighlighting="SQL"
+                                           FontFamily="Consolas"
+                                           FontSize="10pt"
+                                           Background="White"
+                                           x:Name="MySqlAvalonEdit"
+                                           BorderBrush="{StaticResource MahApps.Brushes.AccentBase}"
+                                           BorderThickness="1"
+                                           Margin="10 0 10 0"
+                                           Padding="5"/>
+                    <Button Content="Test script" Grid.Row="1" Width="150" Margin="10" HorizontalAlignment="Right"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="SQLite">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <avalonEdit:TextEditor xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                                           SyntaxHighlighting="SQL"
+                                           FontFamily="Consolas"
+                                           FontSize="10pt"
+                                           Background="White"
+                                           x:Name="SQLiteAvalonEdit"
+                                           BorderBrush="{StaticResource MahApps.Brushes.AccentBase}"
+                                           BorderThickness="1"
+                                           Margin="10 0 10 0"
+                                           Padding="5"/>
+                    <Button Content="Test script" Grid.Row="1" Width="150" Margin="10" HorizontalAlignment="Right"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

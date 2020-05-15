@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using BetterER.Controller;
 using BetterER.Controller.Contracts;
 using BetterER.MVVM;
@@ -43,6 +44,7 @@ namespace BetterER.ViewModels
         public RelayCommand OpenHelpfileCommand { get; }
         public RelayCommand ReportErrorCommand { get; }
         public RelayCommand ShowAboutCommand { get; }
+        public RelayCommand OpenEditorWindowCommand { get; }
 
         #endregion
 
@@ -69,9 +71,15 @@ namespace BetterER.ViewModels
             OpenHelpfileCommand = new RelayCommand(OpenHelpfile);
             ReportErrorCommand = new RelayCommand(ReportError);
             ShowAboutCommand = new RelayCommand(ShowAbout);
+            OpenEditorWindowCommand = new RelayCommand(OpenEditorWindow);
 
             DiagramSaved = false;
-            DiagramOpen = false;
+            DiagramOpen = true;
+        }
+
+        private void OpenEditorWindow()
+        {
+            _windowController.ShowEditorWindow();
         }
 
         private void ShowAbout()
@@ -95,6 +103,7 @@ namespace BetterER.ViewModels
 
         private void GenerateSQLScript()
         {
+            _windowController.ShowDiagramToScriptWindow();
         }
 
         private void PdfExport()
