@@ -1,26 +1,89 @@
-﻿<Window x:Class="BetterER.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BetterER"
-        mc:Ignorable="d"
-        Title="BetterER" 
-        Height="450" Width="800"
-        Icon="/Assets/er.png"
-        WindowState="Maximized">
+﻿<mah:MetroWindow
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    x:Class="BetterER.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:BetterER.ViewModels"
+    xmlns:prop="clr-namespace:BetterER.Properties"
+    mc:Ignorable="d"
+    Title="BetterER" 
+    MinHeight="700" MinWidth="900"
+    WindowState="Maximized"
+    d:DataContext="{d:DesignInstance viewModel:MainViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Menu>
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Close" />
+            <MenuItem Header="{x:Static prop:strings.File}">
+                <MenuItem Header="{x:Static prop:strings.NewDiagram}" />
+                <MenuItem Header="{x:Static prop:strings.OpenDiagram}" />
+                <Separator />
+                <MenuItem Header="{x:Static prop:strings.SaveDiagram}" Command="{Binding SaveDiagramCommand}" />
+                <MenuItem Header="{x:Static prop:strings.SaveDiagramAs}" Command="{Binding SaveDiagramUnderCommand}"/>
+                <Separator />
+                <MenuItem Header="{x:Static prop:strings.ExportDiagram}" Command="{Binding ExportDiagramCommand}"/>
+                <Separator />
+                <MenuItem Header="{x:Static prop:strings.CloseDiagram}" Command="{Binding CloseDiagramCommand}"/>
+                <Separator />
+                <MenuItem Header="{x:Static prop:strings.Exit}" Command="{Binding ExitApplicationCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static prop:strings.Edit}" IsEnabled="{Binding DiagramOpen}">
+                <MenuItem Header="{x:Static prop:strings.Undo}" Command="{Binding UndoCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Redo}" Command="{Binding RedoCommand}"/>
+                <Separator />
+                <MenuItem Header="{x:Static prop:strings.Copy}" Command="{Binding CopyCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Paste}" Command="{Binding PasteCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.Cut}" Command="{Binding CutCommand}"/>
+                <Separator />
+                <MenuItem Header="{x:Static prop:strings.SelectAll}" Command="{Binding SelectAllCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static prop:strings.Actions}" IsEnabled="{Binding DiagramOpen}">
+                <MenuItem Header="{x:Static prop:strings.GenerateSqlScript}" Command="{Binding GenerateSqlScriptCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ExportAsPdf}" Command="{Binding PdfExportCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ExportAsPng}" Command="{Binding PngExportCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ErrorAnalysis}" Command="{Binding ErrorAnalysisCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static prop:strings.Settings}" Command="{Binding OpenSettingsCommand}"/>
+            <MenuItem Header="{x:Static prop:strings.Help}" >
+                <MenuItem Header="{x:Static prop:strings.ViewHelp}" Command="{Binding OpenHelpfileCommand}"/>
+                <MenuItem Header="{x:Static prop:strings.ReportError}" Command="{Binding ReportErrorCommand}" />
+                <MenuItem Header="{x:Static prop:strings.About}" Command="{Binding ShowAboutCommand}"/>
             </MenuItem>
         </Menu>
+
+        <Grid Grid.Row="1">
+
+        </Grid>
+
+        <StatusBar Grid.Row="2" Background="{StaticResource MahApps.Brushes.AccentBase}">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem >
+                <TextBlock Text="Filepath" Margin="10 0 0 0"/>
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2" >
+                <TextBlock Margin="0 0 10 0">
+                    <Run Text="{x:Static prop:strings.Version}">
+                    </Run><Run Text="1.0"></Run>
+                </TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
-</Window>
+</mah:MetroWindow>

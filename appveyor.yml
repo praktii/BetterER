@@ -8,8 +8,15 @@ image: Visual Studio 2019
 configuration: Release
 platform: Any CPU
 
+before_build:
+- cmd: nuget restore
+
 build:
   verbosity: minimal
+
+test:
+  assemblies:
+    - '**\*.Tests.dll'
   
 artifacts:
 - path: src\BetterER\bin\$(configuration)

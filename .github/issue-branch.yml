@@ -1,5 +1,10 @@
 branchName: short
 silent: false
 
---
-test
+branches:
+  - label: enhancement
+    prefix: feature/
+  - label: bug
+    prefix: bugfix/
+  - label: '*'
+    prefix: issues/
