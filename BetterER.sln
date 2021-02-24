@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER", "src\BetterER\Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER.Tests", "BetterER.Tests\BetterER.Tests.csproj", "{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER-Electron.NET", "BetterER-Electron.NET\BetterER-Electron.NET.csproj", "{631FFF98-3473-40AA-8ACA-94EF684AABC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER.Core", "BetterER.Core\BetterER.Core.csproj", "{297A6605-4EA6-4181-B539-B30CC167A943}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631FFF98-3473-40AA-8ACA-94EF684AABC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631FFF98-3473-40AA-8ACA-94EF684AABC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631FFF98-3473-40AA-8ACA-94EF684AABC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631FFF98-3473-40AA-8ACA-94EF684AABC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297A6605-4EA6-4181-B539-B30CC167A943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297A6605-4EA6-4181-B539-B30CC167A943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297A6605-4EA6-4181-B539-B30CC167A943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297A6605-4EA6-4181-B539-B30CC167A943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
