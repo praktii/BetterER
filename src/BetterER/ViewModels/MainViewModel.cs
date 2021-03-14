@@ -81,7 +81,7 @@ namespace BetterER.ViewModels
             OpenHelpfileCommand = new RelayCommand(OpenHelpfile);
             ReportErrorCommand = new RelayCommand(ReportError);
             ShowAboutCommand = new RelayCommand(ShowAbout);
-            OpenEditorWindowCommand = new RelayCommand(OpenEditorWindow);
+            //OpenEditorWindowCommand = new RelayCommand(OpenEditorWindow);
 
             DiagramSaved = false;
             DiagramOpen = false;
