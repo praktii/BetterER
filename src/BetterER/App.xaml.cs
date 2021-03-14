@@ -51,10 +51,9 @@ namespace BetterER
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(_globalSettings.LanguageKey);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(_globalSettings.LanguageKey);
                 if (_globalSettings.DarkModeEnabled)
-                    ThemeManager.Current.ChangeTheme(Application.Current, "Dark.Blue");
+                    ThemeManager.Current.ChangeTheme(Application.Current, "Dark.Steel");
                 else
-                    ThemeManager.Current.ChangeTheme(Application.Current, "Light.Blue");
-
+                    ThemeManager.Current.ChangeTheme(Application.Current, "Light.Steel");
             }
             catch (Exception e)
             {
