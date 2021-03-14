@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using BetterER.Controller;
 using BetterER.Controller.Contracts;
@@ -23,6 +25,14 @@ namespace BetterER.ViewModels
             get => _diagramOpen;
             set { _diagramOpen = value; OnPropertyChanged(); }
         }
+
+        private string _filePath;
+        public string FilePath
+        {
+            get { return _filePath; }
+            set { _filePath = value; OnPropertyChanged(); }
+        }
+
 
         #region Commands
         public RelayCommand ExitApplicationCommand { get; }
@@ -74,12 +84,17 @@ namespace BetterER.ViewModels
             OpenEditorWindowCommand = new RelayCommand(OpenEditorWindow);
 
             DiagramSaved = false;
-            DiagramOpen = true;
+            DiagramOpen = false;
+
+            FilePath = GetFilePathOfAssemlbyForTest();
         }
 
-        private void OpenEditorWindow()
+        private string GetFilePathOfAssemlbyForTest()
         {
-            _windowController.ShowEditorWindow();
+            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+            UriBuilder uri = new UriBuilder(codeBase);
+            string path = Uri.UnescapeDataString(uri.Path);
+            return Path.GetDirectoryName(path);
         }
 
         private void ShowAbout()
