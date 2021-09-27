@@ -1,5 +1,8 @@
 branchName: short
 silent: false
+defaultBranch: 'development'
+autoCloseIssue: true
+openDraftPR: true
 
 branches:
   - label: enhancement
