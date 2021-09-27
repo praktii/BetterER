@@ -3,6 +3,9 @@ silent: false
 defaultBranch: 'development'
 autoCloseIssue: true
 openDraftPR: true
+copyIssueDescriptionToPR: true
+copyIssueLabelsToPR: true
+copyIssueAssigneeToPR: true
 
 branches:
   - label: enhancement
