@@ -2,7 +2,7 @@ branchName: short
 silent: false
 defaultBranch: 'development'
 autoCloseIssue: true
-openDraftPR: true
+openPR: true
 copyIssueDescriptionToPR: true
 copyIssueLabelsToPR: true
 copyIssueAssigneeToPR: true
