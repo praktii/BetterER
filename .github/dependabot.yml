@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "dependabot:"
+    labels:
+      - "bot"
+      - "dependencies"
