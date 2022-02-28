@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER", "src\BetterER\BetterER.csproj", "{1EAC9DBD-DCD6-4E5E-82B8-762A548933F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterER", "src\BetterER\BetterER.csproj", "{1EAC9DBD-DCD6-4E5E-82B8-762A548933F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER.Tests", "BetterER.Tests\BetterER.Tests.csproj", "{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterER.Tests", "BetterER.Tests\BetterER.Tests.csproj", "{0462CA9D-3B27-4EDF-89BD-D44E5158C3FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{1EAC9DBD-DCD6-4E5E-82B8-762A548933F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EAC9DBD-DCD6-4E5E-82B8-762A548933F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EAC9DBD-DCD6-4E5E-82B8-762A548933F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8BAE416-615C-44DA-96EF-D76BE1DC7BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0462CA9D-3B27-4EDF-89BD-D44E5158C3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0462CA9D-3B27-4EDF-89BD-D44E5158C3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0462CA9D-3B27-4EDF-89BD-D44E5158C3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0462CA9D-3B27-4EDF-89BD-D44E5158C3FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
