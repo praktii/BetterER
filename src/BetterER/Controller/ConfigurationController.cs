@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace BetterER.Controller
 {
@@ -24,23 +24,17 @@ namespace BetterER.Controller
 
         public void Save(T obj)
         {
-            if (obj == null)
-                throw new ArgumentNullException();
-
-            using (var file = File.CreateText(ConfigFileName))
-            {
-                var jsonSerializer = new JsonSerializer();
-                jsonSerializer.Serialize(file, obj);
-            }
+            var fileName = Path.Combine(ConfigPath, ConfigFileName);
+            var jsonString = JsonSerializer.Serialize(obj);
+            File.WriteAllText(fileName, jsonString);
         }
 
         public T Load()
         {
-            using (var file = File.OpenText(ConfigFileName))
-            {
-                var jsonSerializer = new JsonSerializer();
-                return (T)jsonSerializer.Deserialize(file, typeof(T));
-            }
+            var filePath = Path.Combine(ConfigPath, ConfigFileName);
+            var jsonString = File.ReadAllText(filePath);
+            var test = JsonSerializer.Deserialize<T>(jsonString);
+            return test;
         }
     }
 }
