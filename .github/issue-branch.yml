@@ -1,4 +1,4 @@
-branchName: short
+branchName: '${issue.number}-${issue.title}'
 silent: false
 defaultBranch: 'development'
 autoCloseIssue: true
