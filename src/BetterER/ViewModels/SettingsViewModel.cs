@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using BetterER.Controller;
 using BetterER.Models;
 using BetterER.MVVM;
-using ControlzEx.Theming;
 
 namespace BetterER.ViewModels
 {
@@ -75,17 +74,11 @@ namespace BetterER.ViewModels
             try
             {
                 _configurationController.Save(GlobalSettings);
-                if (GlobalSettings.DarkModeEnabled)
-                    ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Dark.Blue");
-                else
-                    ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Light.Blue");
-
                 DialogResultTrueRequest.Invoke(this, new EventArgs());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw e;
             }
         }
 

@@ -1,5 +1,4 @@
-<mah:MetroWindow
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+<Window
     x:Class="BetterER.Dialog.BaseDialogWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -13,6 +12,7 @@
     SizeToContent="WidthAndHeight"
     ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen">
+
     <Window.Resources>
         <ResourceDictionary>
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
@@ -25,9 +25,10 @@
                 <view:ReportErrorControl></view:ReportErrorControl>
             </DataTemplate>
         </ResourceDictionary>
-
     </Window.Resources>
+    
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
     </Grid>
-</mah:MetroWindow>
+
+</Window>
