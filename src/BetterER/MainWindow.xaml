@@ -1,262 +1,78 @@
-﻿<Fluent:RibbonWindow
+﻿<syncfusion:RibbonWindow  
     x:Class="BetterER.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:BetterER.ViewModels"
-    xmlns:prop="clr-namespace:BetterER.Properties"
-    xmlns:Fluent="urn:fluent-ribbon"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     mc:Ignorable="d"
     Title="BetterER" 
     MinHeight="700" MinWidth="900"
     WindowState="Maximized"
     d:DataContext="{d:DesignInstance viewModel:MainViewModel}"
-    TitleBarHeight="35"
+    skin:SfSkinManager.VisualStyle="Office2019Colorful"
     >
 
-    <Fluent:RibbonWindow.Resources>
-        <Style TargetType="{x:Type Fluent:RibbonTabItem}" x:Key="DefaultRibbonTabItemStyle">
-            <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="ActiveTabBackground" Value="{StaticResource Fluent.Ribbon.Brushes.Backstage.Background}" />
-                    <Setter Property="Foreground" Value="{StaticResource Fluent.Ribbon.Brushes.Backstage.Foreground}" />
-                    <Setter Property="ActiveTabBorderBrush" Value="Transparent" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Fluent:RibbonWindow.Resources>
-
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Fluent:Ribbon Grid.Row="0" SelectedTabIndex="{Binding SelectedRibbonTabItemIndex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+        <syncfusion:Ribbon x:Name="parentRibbon" >
+            <syncfusion:RibbonTab Caption="Startseite">
+                <syncfusion:RibbonBar Header="Mail">
+                    <syncfusion:RibbonButton Label="New Mail" SizeForm="Large" Click="RibbonButton_Click"/>
+                </syncfusion:RibbonBar>
+            </syncfusion:RibbonTab>
 
-            <Fluent:Ribbon.QuickAccessItems >
-                <Fluent:QuickAccessMenuItem IsChecked="true" Height="35" VerticalContentAlignment="Center">
-                    <Fluent:Button Icon="/Assets/RibbonIcons/QuickAccessBar/command-undo-1_large@1x.png" Header="Undo" Height="35" VerticalContentAlignment="Center"/>
-                </Fluent:QuickAccessMenuItem>
-                <Fluent:QuickAccessMenuItem IsChecked="true" Height="35">
-                    <Fluent:Button Icon="/Assets/RibbonIcons/QuickAccessBar/command-redo-1_large@1x.png" Header="Redo" Height="35" />
-                </Fluent:QuickAccessMenuItem>
-                <Fluent:QuickAccessMenuItem IsChecked="true" Height="35" MaxDropDownHeight="35">
-                    <Fluent:Button Icon="/Assets/RibbonIcons/QuickAccessBar/save-filled_large@1x.png" Header="Save" Height="35" />
-                </Fluent:QuickAccessMenuItem>
-            </Fluent:Ribbon.QuickAccessItems>
+            <syncfusion:RibbonTab Caption="Hilfe">
+                <syncfusion:RibbonBar Header="Hilfe">
+                    <syncfusion:RibbonButton Label="Hilfe" SizeForm="Large" Click="RibbonButton_Click"/>
+                    <syncfusion:RibbonButton Label="Feedback" SizeForm="Large" Click="RibbonButton_Click"/>
+                    <syncfusion:RibbonButton Label="Über BetterER" SizeForm="Large" Click="RibbonButton_Click"/>
+                    <syncfusion:RibbonButton Label="Lizenzinfos" SizeForm="Large" Click="RibbonButton_Click"/>
+                </syncfusion:RibbonBar>
+            </syncfusion:RibbonTab>
 
-            <!--Backstage-->
-            <Fluent:Ribbon.Menu>
-                <Fluent:Backstage IsOpen="True">
-                    <Fluent:BackstageTabControl>
-                        <Fluent:BackstageTabItem Header="Startseite">
-                            <Fluent:BackstageTabItem.Icon>
-                                <Image Source="/Assets/RibbonIcons/Backstage/home@1x.png" />
-                            </Fluent:BackstageTabItem.Icon>
-                            <Fluent:BackstageTabItem.Content>
-                                <Grid>
+            <syncfusion:Ribbon.BackStage>
+                <syncfusion:Backstage>
+                    <syncfusion:BackstageTabItem Header="Startseite" />
+                    <syncfusion:BackstageTabItem Header="Neu" />
+                    <syncfusion:BackstageTabItem Header="Öffnen" />
 
-                                </Grid>
-                            </Fluent:BackstageTabItem.Content>
-                        </Fluent:BackstageTabItem>
+                    <syncfusion:BackStageSeparator />
 
-                        <Fluent:BackstageTabItem Header="Neu" >
-                            <Fluent:BackstageTabItem.Icon>
-                                <Image Source="/Assets/RibbonIcons/Backstage/document-corner@1x.png" />
-                            </Fluent:BackstageTabItem.Icon>
-                            <Fluent:BackstageTabItem.Content>
-                                <Grid>
+                    <syncfusion:BackstageTabItem Header="Informationen" IsEnabled="{Binding DiagramOpen}"/>
+                    <syncfusion:BackStageCommandButton Header="Speichern" Command="{Binding SaveDiagramCommand}" IsEnabled="{Binding DiagramOpen}"/>
+                    <syncfusion:BackStageCommandButton Header="Speichern unter" Command="{Binding SaveDiagramUnderCommand}" IsEnabled="{Binding DiagramOpen}"/>
+                    <syncfusion:BackStageCommandButton Header="Schließen" IsEnabled="{Binding DiagramOpen}"/>
 
-                                </Grid>
-                            </Fluent:BackstageTabItem.Content>
-                        </Fluent:BackstageTabItem>
+                    <syncfusion:BackStageSeparator Position="Bottom"/>
 
-                        <Fluent:BackstageTabItem Header="Öffnen" >
-                            <Fluent:BackstageTabItem.Icon>
-                                <Image Source="/Assets/RibbonIcons/Backstage/folder-open@1x.png" />
-                            </Fluent:BackstageTabItem.Icon>
-                            <Fluent:BackstageTabItem.Content>
-                                <Grid>
+                    <syncfusion:BackStageCommandButton Header="Einstellungen" Position="Bottom" Command="{Binding OpenSettingsCommand}"/>
+                    <syncfusion:BackStageCommandButton Header="Beenden" Position="Bottom" Command="{Binding CloseApplicationCommand}"/>
+                </syncfusion:Backstage>
+            </syncfusion:Ribbon.BackStage>
+        </syncfusion:Ribbon>
 
-                                </Grid>
-                            </Fluent:BackstageTabItem.Content>
-                        </Fluent:BackstageTabItem>
+        <!--<syncfusion:DocumentContainer x:Name="doc" MDIParentRibbon="{Binding ElementName=parentRibbon}" Grid.Row="1" Mode="TDI" TDICloseButtonType="Hide" IsTDIDragDropEnabled="False" DocumentClosing="doc_DocumentClosing" ShowTabItemContextMenu="False" >
+            <view:MemberManagementView syncfusion:DocumentContainer.Header="Mitgliederverwaltung" DataContext="{Binding MemberDataContext}" />
+            <view:GroupManagementView syncfusion:DocumentContainer.Header="Gruppenverwaltung" DataContext="{Binding GroupDataContext}"/>
+            <view:ClothingView syncfusion:DocumentContainer.Header="Bekleidungsverwaltung" DataContext="{Binding ClothingDataContext}"/>
+            <view:CorrespondenceView syncfusion:DocumentContainer.Header="Schriftverkehr" DataContext="{Binding CorrespondenceDataContext}"/>
+            <view:ServiceManagementView syncfusion:DocumentContainer.Header="Dienstverwaltung" DataContext="{Binding ServiceDataContext}"/>
+            <view:CalendarView syncfusion:DocumentContainer.Header="Kalendar" />
+            <view:MemberWarningView syncfusion:DocumentContainer.Header="Verwarnungen" />
+        </syncfusion:DocumentContainer>-->
 
-                        <Fluent:SeparatorTabItem />
-
-                        <Fluent:BackstageTabItem Header="Information" IsEnabled="{Binding DiagramOpen}">
-                            <Fluent:BackstageTabItem.Content>
-                                <Grid>
-
-                                </Grid>
-                            </Fluent:BackstageTabItem.Content>
-                        </Fluent:BackstageTabItem>
-                        <Fluent:Button Header="Speichern" Command="{Binding SaveDiagramCommand}" IsEnabled="{Binding DiagramOpen}"/>
-                        <Fluent:Button Header="Speichern unter" Command="{Binding SaveDiagramUnderCommand}" IsEnabled="{Binding DiagramOpen}"/>
-                        <Fluent:Button Header="Schließen" IsEnabled="{Binding DiagramOpen}"/>
-
-                        <Fluent:SeparatorTabItem />
-
-                        <Fluent:Button Header="Optionen" Command="{Binding OpenSettingsCommand}" VerticalAlignment="Bottom"/>
-                        <Fluent:Button Header="Feedback" VerticalAlignment="Bottom"/>
-                        <Fluent:Button Header="Beenden" Command="{Binding ExitApplicationCommand}" VerticalAlignment="Bottom">
-                            <Fluent:Button.Icon>
-                                <Image Source="/Assets/RibbonIcons/Backstage/exit@1x.png" />
-                            </Fluent:Button.Icon>
-                        </Fluent:Button>
-
-                    </Fluent:BackstageTabControl>
-                </Fluent:Backstage>
-            </Fluent:Ribbon.Menu>
-
-            <Fluent:RibbonTabItem Header="Start">
-                <Fluent:RibbonGroupBox Header="Zwischenablage">
-                    <Fluent:SplitButton Header="Einfügen" >
-                        <Fluent:SplitButton.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/StartTab/clipboard-paste_large@1x.png" />
-                        </Fluent:SplitButton.LargeIcon>
-                    </Fluent:SplitButton>
-                    <Fluent:Button Header="Ausschneiden" SizeDefinition="Middle, Small, Small" >
-                        <Fluent:Button.Icon>
-                            <Image Source="/Assets/RibbonIcons/StartTab/clipboard-cut_large@1x.png" />
-                        </Fluent:Button.Icon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Kopieren" SizeDefinition="Middle, Small, Small" >
-                        <Fluent:Button.Icon>
-                            <Image Source="/Assets/RibbonIcons/StartTab/clipboard-copy-text_large@1x.png" />
-                        </Fluent:Button.Icon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Format übertragen" SizeDefinition="Middle, Small, Small">
-                        <Fluent:Button.Icon>
-                            <Image Source="/Assets/RibbonIcons/StartTab/cleanup_large@1x.png" />
-                        </Fluent:Button.Icon>
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>
-            </Fluent:RibbonTabItem>
-
-            <!--Tabs-->
-            <Fluent:RibbonTabItem Header="Projekt" >
-                <Fluent:RibbonGroupBox Header="Item 1">
-                    <Fluent:Button Header="Neu" Width="80" >
-                        <!--<Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonItems/Large/people-man-1-filled-add-filled_large.png" />
-                        </Fluent:Button.LargeIcon>-->
-                    </Fluent:Button>
-                    <Fluent:Button Header="Bearbeiten"  Width="80">
-                        <!--<Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonItems/Large/people-man-1-filled-edit-filled_large.png" />
-                        </Fluent:Button.LargeIcon>-->
-                    </Fluent:Button>
-                    <Fluent:Button Header="Löschen" Width="80" >
-                        <!--<Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonItems/Large/people-man-1-filled-remove-filled_large.png" />
-                        </Fluent:Button.LargeIcon>-->
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>
-            </Fluent:RibbonTabItem>
-
-            <Fluent:RibbonTabItem Header="Export" >
-                <Fluent:RibbonGroupBox Header="Export to Database">
-                    <Fluent:Button Header="Export to SQL" Width="80" >
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/ExportTab/database-import_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Export to MySQL"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/ExportTab/database-import_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Export to SQLite"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/ExportTab/database-import_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Export to PostgreSQL"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/ExportTab/database-import_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>
-
-                <Fluent:RibbonGroupBox Header="Export">
-                    <Fluent:Button Header="Export to PDF"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/ExportTab/pdf-format-arrow-left-filled_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Export to Image"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/ExportTab/picture-arrow-left-filled_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>
-
-            </Fluent:RibbonTabItem>
-
-            <Fluent:RibbonTabItem Header="Überprüfen" >
-                <Fluent:RibbonGroupBox Header="Scripte">
-                    <Fluent:Button Header="Script überprüfen" Width="80" >
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/CheckTab/document-script-ok-filled_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>
-            </Fluent:RibbonTabItem>
-
-            <Fluent:RibbonTabItem Header="Help" >
-                <Fluent:RibbonGroupBox Header="Help">
-                    <Fluent:Button Header="Help" Width="80" >
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/HelpTab/support-filled-help-filled_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="Feedback"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/HelpTab/emoticon-happy_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                    <Fluent:Button Header="News"  Width="80">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="/Assets/RibbonIcons/HelpTab/announcement_large@1x.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>
-            </Fluent:RibbonTabItem>
-        </Fluent:Ribbon>
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MinWidth="600"/>
-                <ColumnDefinition Width="2" />
-                <ColumnDefinition Width="Auto" MinWidth="250"/>
-            </Grid.ColumnDefinitions>
-
-            <GridSplitter Width="2" Grid.Column="1"/>
-            <GroupBox Header="Project explorer" Grid.Column="2" >
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        
-                        <Fluent:Button SizeDefinition="Small, Small, Small" Icon="/Assets/GridIcons/Projectexplorer/lookup_large@1x.png" />
-                        <Fluent:TextBox Width="Auto" Grid.Column="1" Margin="-10 0 0 0" BorderBrush="Transparent"/>
-                    </Grid>
-                    
-                    <Separator />
-                </StackPanel>
-            </GroupBox>
-        </Grid>
-
-        <Fluent:StatusBar Grid.Row="2">
-            <Fluent:StatusBarItem ToolTip="{Binding FilePath}" Content="{Binding FilePath}" HorizontalAlignment="Left" Margin="10 0 0 0"/>
-            <Fluent:StatusBarItem HorizontalAlignment="Right" Value="Verison" Margin="0 0 5 0" />
-            <Fluent:StatusBarItem HorizontalAlignment="Right" Value="1.0" Margin="0 0 10 0" />
-        </Fluent:StatusBar>
+        <syncfusion:RibbonStatusBar Grid.Row="2" >
+            <Label HorizontalAlignment="Right" Margin="0 0 10 0" Content="Version 1.0.0.0" />
+        </syncfusion:RibbonStatusBar>
     </Grid>
-</Fluent:RibbonWindow>
+    
+</syncfusion:RibbonWindow>

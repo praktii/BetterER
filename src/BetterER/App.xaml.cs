@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using BetterER.Controller;
 using BetterER.Models;
-using ControlzEx.Theming;
 
 namespace BetterER
 {
@@ -15,6 +14,11 @@ namespace BetterER
     /// </summary>
     public partial class App
     {
+        public App()
+        {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTA3MDA0QDMxMzkyZTMyMmUzMFFNbzdvbjZCeVNqMHJwLzQ2eWVxd2VWVlNEWE1NL2JKaTdGZFoweU5RV3c9");
+        }
+
         private readonly ConfigurationController<GlobalSettings> _configurationController = new ConfigurationController<GlobalSettings>();
         private GlobalSettings _globalSettings;
 
@@ -50,12 +54,8 @@ namespace BetterER
                 _globalSettings = _configurationController.Load();
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(_globalSettings.LanguageKey);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(_globalSettings.LanguageKey);
-                if (_globalSettings.DarkModeEnabled)
-                    ThemeManager.Current.ChangeTheme(Application.Current, "Dark.Steel");
-                else
-                    ThemeManager.Current.ChangeTheme(Application.Current, "Light.Steel");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("en-EN");
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-EN");
