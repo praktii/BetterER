@@ -1,17 +1,17 @@
-﻿using System;
 using BetterER.Controller;
 using BetterER.Controller.Contracts;
 using BetterER.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
-namespace BetterER.Tests
+namespace BetterER.Test
 {
     [TestClass]
-    public class SQLControllerTests
+    public class SQLControllerTest
     {
         private ISQLController _sqlController;
 
-        public SQLControllerTests()
+        public SQLControllerTest()
         {
             _sqlController = new SQLController();
         }

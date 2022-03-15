@@ -1,8 +1,8 @@
-branchName: short
+branchName: '${issue.number}-${issue.title}'
 silent: false
 defaultBranch: 'development'
 autoCloseIssue: true
-openPR: true
+openDraftPR: true
 copyIssueDescriptionToPR: true
 copyIssueLabelsToPR: true
 copyIssueAssigneeToPR: true
