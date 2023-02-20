@@ -58,7 +58,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="19.4.0.56" />
-    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="19.4.0.56" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="20.4.0.50" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Themes.Office2019Colorful.WPF" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Themes.Office365.WPF" Version="19.4.0.56" />
